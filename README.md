@@ -5,7 +5,7 @@ TIME: 631/20 = 31.55
 https://github.com/novenix/NetworkClient
 
 (This work was based on httpserver from previus lab)
-## ThreadPool (its used from previus lab httpServer)
+## ThreadPool (its improved with threadpools from previus lab)
 
     you can invoke http://localhost:35000/mypage.html to see a beauty image of the universe
 

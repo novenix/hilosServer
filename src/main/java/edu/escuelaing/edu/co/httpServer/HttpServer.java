@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
@@ -28,6 +29,8 @@ public class HttpServer implements Runnable {
         return _instance;
     }
     public static void main(String... args) throws IOException{
+
+
         new Thread(HttpServer.getInstance()).start();
         try {
             Thread.sleep(200000);
@@ -47,8 +50,8 @@ public class HttpServer implements Runnable {
     }
 
     public  void startServer() throws IOException {
-        int port =35000;
 
+        int port = getPort();
 
         Socket clientSocket;
 
@@ -63,6 +66,7 @@ public class HttpServer implements Runnable {
                 this.pool.shutdown();
             } catch (IOException e) {
                 System.err.println("Could not listen on port: "+port);
+                System.out.println(e);
                 System.exit(1);
             }
 
@@ -70,7 +74,12 @@ public class HttpServer implements Runnable {
         }
 
 
-
+    static int getPort() {
+        if (System.getenv("PORT") != null) {
+            return Integer.parseInt(System.getenv("PORT"));
+        }
+        return 5000; //returns default port if heroku-port isn't set(i.e. on localhost)
+    }
 
 
 

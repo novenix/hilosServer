@@ -1,4 +1,7 @@
 # Threads
+## Server running
+
+[https://hilos-server.herokuapp.com/album/index.html](https://hilos-server.herokuapp.com/album/index.html)
 TIME: 631/20 = 31.55
 ## DATAGRAMAS (can find it in previus lab :D).
 
